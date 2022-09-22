@@ -13,6 +13,14 @@ function delete_row(no) {
     document.getElementById("row" + no + "").outerHTML = "";
 }
 
+function confirm_delete(no) {
+    if (confirm("Are you sure to delete the item?")){
+        delete_row(no)
+    } else {
+        
+    }
+}
+
 function add_row() {
     var new_name = document.getElementById("new_name").value;
     console.log(new_name)
@@ -25,7 +33,7 @@ function add_row() {
             <th scope="row">${table_len}</th>
             <td id="name_row${table_len}">${new_name}</td>
             <td><button type="button" class="btn btn-light" id="edit_button${table_len}" onclick="edit_row('${table_len}')" value="Edit Row">Edit</button></td>
-            <td><button type="button" class="btn btn-danger" id="delete_button${table_len}" onclick="delete_row('${table_len}')" value="Delete Row">Delete</button></td>
+            <td><button type="button" class="btn btn-danger" id="delete_button${table_len}" onclick="confirm_delete('${table_len}')" value="Delete Row">Delete</button></td>
         </tr>
     `
     document.getElementById("new_name").value = "";
